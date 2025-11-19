@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "FocusTube",
+  "version": "1.0",
+  "description": "Removes all distractions from YouTube so you can focus.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "focustube@stefanschfr",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "icons": {
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": [
+        "rules.js",
+        "utils.js",
+        "content.js"
+      ]
+    }
+  ],
+  "permissions": [],
+  "host_permissions": [
+    "*://www.youtube.com/*"
+  ]
+}
