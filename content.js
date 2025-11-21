@@ -1,5 +1,5 @@
 function init() {
-    observe(() => removeSelectors(RULES.selectors));
+    observe(() => removeSelectors(getActiveSelectors()));
 }
 
 init();

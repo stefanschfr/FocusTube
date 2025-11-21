@@ -1,13 +1,17 @@
 function removeSelectors(selectors) {
-    for (const { selector } of selectors) {
+    selectors.forEach(selector => {
         document.querySelectorAll(selector).forEach(el => el.remove());
-    }
-    /*const frosted = document.getElementById('frosted-glass');
-    if (frosted) {
-        frosted.style.height = '0px';
-        frosted.style.padding = '0px';
-    }*/
-    // Class for the overlapping frosted glass: with-chipbar
+    });
+}
+function getActiveSelectors() {
+    const path = location.pathname;
+    const selectors = [];
+
+    if (RULES.global) selectors.push(...RULES.global);
+
+    if (RULES[path]) selectors.push(...RULES[path]);
+
+    return selectors;
 }
 
 function observe(callback) {
