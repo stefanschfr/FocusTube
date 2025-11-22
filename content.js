@@ -1,5 +1,7 @@
 function init() {
-    observe(() => removeSelectors(getActiveSelectors()));
+    observe(() => {
+        removeSelectors(getActiveSelectors())
+    });
 }
 
 init();
