@@ -1,16 +1,23 @@
 const RULES = {
     global: [
-        'a[title="Shorts"]',
-        'a[href*="shorts"]',
-        'ytd-reel-shelf-renderer',
-        'ytd-rich-section-renderer',
-        'ytm-shorts-lockup-view-model',
-        'tp-yt-app-drawer'
+        'a[title="Shorts"]', // Sidebar Short Category
+        'ytd-rich-section-renderer', // Shorts from Homepage
+        // 'tp-yt-app-drawer', // Detailed Sidebar
+
+        'yt-tab-shape[tab-title="Shorts"]', // Channel Short Category
+        'ytd-reel-shelf-renderer' // Shorts from Channel
     ],
 
     "/": [
-        'ytd-feed-filter-chip-bar-renderer',
-        '#frosted-glass.with-chipbar',
-        'ytd-browse'
+        'ytd-browse' // Homepage Suggestions
     ],
+
+    "/watch": [
+        '#secondary', // Sidebar Suggestions
+    ],
+    "/results": [
+        'grid-shelf-view-model', // Shorts from Search
+        '#chip-bar', // Search Filter Bar
+        'a[href="https://www.youtube.com/howyoutubeworks/product-features/search/"]' // Search Infos
+    ]
 };
