@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "FocusTube",
+  "name": "FocusedTube",
   "version": "1.0",
   "description": "Removes all distractions from YouTube so you can focus.",
   "browser_specific_settings": {
     "gecko": {
-      "id": "focustube@stefanschfr",
+      "id": "focusedtube@stefanschfr",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
         "required": [
