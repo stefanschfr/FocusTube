@@ -1,6 +1,6 @@
 function removeSelectors(selectors) {
     selectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => el.style.display = 'none');
+        document.querySelectorAll(selector).forEach(el => el.remove());
     });
 }
 
