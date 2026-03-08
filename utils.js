@@ -1,16 +1,29 @@
-function removeSelectors(selectors) {
-    selectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => el.remove());
-    });
+const STYLE_ID = "yt-cleaner-style";
+
+function update() {
+    applyCSS(getSelectors());
 }
 
-function getActiveSelectors() {
+function getSelectors() {
     const path = location.pathname;
-    return Array.from(new Set((RULES.global || []).concat(RULES[path] || [])));
+    return [
+        ...(RULES.global || []),
+        ...(RULES[path] || [])
+    ];
 }
 
-function observe(callback) {
-    const observer = new MutationObserver(callback);
-    observer.observe(document.body, {childList: true, subtree: true});
-    callback();
+function applyCSS(selectors) {
+    let style = document.getElementById(STYLE_ID);
+    if (!style) {
+        style = document.createElement("style");
+        style.id = STYLE_ID;
+        document.head.appendChild(style);
+    }
+    style.textContent = buildCSS(selectors);
+}
+
+function buildCSS(selectors) {
+    return selectors
+        .map(s => `${s} { display: none !important; }`)
+        .join("\n");
 }

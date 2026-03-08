@@ -1,7 +1,6 @@
 function init() {
-    observe(() => {
-        removeSelectors(getActiveSelectors())
-    });
+    update();
+    document.addEventListener("yt-page-data-updated", update);
 }
 
 init();
