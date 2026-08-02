@@ -1,6 +1,14 @@
+function handleNavigation() {
+    requestAnimationFrame(() => {
+        requestAnimationFrame(update);
+    });
+}
+
 function init() {
     update();
-    document.addEventListener("yt-page-data-updated", update);
+
+    window.addEventListener("yt-navigate-finish", handleNavigation);
+    window.addEventListener("popstate", handleNavigation);
 }
 
 init();
